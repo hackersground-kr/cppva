@@ -6,45 +6,41 @@ CppVa
 
 ## 시작하는 방법
 
-1. Azure로 웹 앱 만들기를 눌러줍니다.
+1. 저희 GitHub에서 fork 한 후 codespace를 생성한다.
+   
+2. Azure로 웹 앱 만들기를 눌러줍니다.
 ![image](https://github.com/hackersground-kr/cppva/assets/74394824/fe6f9812-ce7d-4d23-a578-0506cdcb4d8d)
 
 ![image](https://github.com/hackersground-kr/cppva/assets/74394824/ff1f38b1-ea1f-4e19-ae12-d2aaa5bc2aad)
 
-2. 리소스의 그룹 이름을 만들어 주는데 이때 영숫자 문자와 하이픈만 허용하고 하이픈으로 시작하거나 끝날 수 없으며 64자 미만이어야 합니다.
+3. 리소스의 그룹 이름을 만들어 주는데 이때 영숫자 문자와 하이픈만 허용하고 하이픈으로 시작하거나 끝날 수 없으며 64자 미만이어야 합니다.
 
-3. 게시에서 코드를 선택해주시고 런타임 스택은 ASP.NET V3.5로 합니다.
+4. 게시에서 코드를 선택해주시고 런타임 스택은 ASP.NET V3.5로 합니다.
 
-4. 운영체제의 경우 Windows로 선택해주시고 지역은 Korea Central로 설정해 줍니다.
+5. 운영체제의 경우 Windows로 선택해주시고 지역은 Korea Central로 설정해 줍니다.
 
-5. 
-구독 - Hackers Ground
-리소스 그룹 rg-hg-Team-CppVa
+6. 가격 책정 플랜에서 새 App Service 요금제를 만들어 줍니다.\
 
-<이름>을 정한다
+7. 다음을 눌러줍니다.
 
-<게시>에 코드를 누른다
+![image](https://github.com/hackersground-kr/cppva/assets/74394824/a5b485c4-876d-48ec-8def-648551132f9e)
 
-<런타임 스택 선택>- ASP.NET  V3.5
+8. GitHub Actions 설정에서 지속적인 배포를 사용으로 눌러줍니다.
 
-<운영 체제>Windows
+9. GitHub Actions 세부 정보에서 GitHub계정을 입력해주시고 자신의 조직과 codespace를 생성한
+    리포지토리를 설정해 준다.
 
-<지역>-Korea Central
+ ![image](https://github.com/hackersground-kr/cppva/assets/74394824/d0794e0b-35f5-4779-b402-c61df084f428)
+ 10. 다음을 누른후 네트워킹에서 공용 액세스 사용은 켜고 네트워크 삽입 사용은 끈다.
 
-<Windows 플랜>
+ ![image](https://github.com/hackersground-kr/cppva/assets/74394824/df51e27e-6193-43dc-af77-1db21967f3ca)
+ 11. 다음을 누르고 모니터링에서 Application Insights 사용을 아니요를 눌러준다.
 
-다음 누르기
+ 12. 태그를 비우고 검토 + 만들기를 눌러 웹앱을 생성해 준다. 
 
-GitHub Actions 사용
-
-조직 - hackersground-kr
-리포지토리를 정해준다.
-
-나머지는 다 다음을 눌러준다
-
-그리고 웹앱을 생성해 준다.
-
-그 후 GitHub에 생성된 yml파일을 
+ 13. 그 후 리포지토리_이름/.github/workflows/ 생성된 yml파일을 연다.
+ 
+ 14. yml파일이 생성되면 아래 코드들이 존재한다.
 
 - name: Setup MSBuild path
         uses: microsoft/setup-msbuild@v1.0.2
@@ -58,12 +54,8 @@ GitHub Actions 사용
       - name: Publish to folder
         run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
 
-이 부분을 삭제 해준다.
+이 부분을 삭제 해준다. (이렇게 수정해 준다. 위 코드는 정적 웹으로만 구성된 코드여서 동적인 부분을 받는 코드는 다 삭제한 코드이다.)
 
-그 후 
+15. 그 후 '/published/**'  이것을 -> '코드가 존재하는 파일의 이름/**' 으로 바꿔준다.
 
- '/published/**'  이것을 -> '코드가 존재하는 파일의 이름/**' 으로 바꿔준다.
-
-이렇게 수정해 준다. 위 코드는 정적 웹으로만 구성된 코드여서 동적인 부분을 받는 코드는 다 삭제한 코드이다.
-
- 그 후 commit 해준 후 사이트를 실행한다.
+16. 위 수정한 코드들을 commit 해준 후 만들어준 웹앱의 기본 도메인으로 사이트를 접속한다.
