@@ -32,6 +32,7 @@
 
 <body>
     <!-- Responsive navbar-->
+    <div id="result"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#!">Start your study!</a>
@@ -50,8 +51,8 @@
     <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
         <div class="text-center my-5">
             <img class="img-fluid rounded-circle mb-4" />
-            <h1 class="text-white fs-3 fw-bolder">강의 추천</h1>
-            <p class="text-white-50 mb-0">당신이 작성한 정보를 토대로 분석한 결과... 설레는 마음으로</p>
+            <h1 class="text-white fs-3 fw-bolder">Recommend Lecture</h1>
+            <p class="text-white-50 mb-0" style="font-weight: bold;">당신이 작성한 정보를 토대로 분석한 결과... 설레는 마음으로</p>
         </div>
     </header>
 
@@ -61,8 +62,7 @@
                 <div class="col-lg-6">
                     <h2>당신에게 적합한 강의는 📂🗂️</h2>
                     <div id="lectureResult"></div>
-                    <div id="chart"></div>
-                    <div id="resultText" class="text-center"></div>
+                    <div id="chart" style="font-weight: bold;"></div>
                 </div>
             </div>
         </div>
@@ -87,14 +87,33 @@
             };
     
             var lectureResult = document.getElementById('lectureResult');
-            var resultText = document.getElementById('resultText');
     
             // 선택된 값들을 배열에 저장
             var selectedValues = Object.values(values);
+            var lectureNames = ["컴퓨터/정보화 수업", "어학 수업", "문화/교양", "문화/교양 수업", "일반 직업 기술 수업", "사회봉사 수업", "건강 수업", "성인기초"];
     
             var output = make_data();
+            for (var i = 0; i < selectedValues.length; i++) {
+                console.log(selectedValues[i]);
+            }
+            
+            let genders = ["당신은 남성,", "당신은 여성,"];
+            let ages = ["40대 ,", "50대 ,", "60대 ,"];
+            let educations = ["초등학교까지 졸업하거나 졸업하지 못하였고,", "중학교까지 졸업하였고,", "고등학교까지 졸업하였고 ,", "최소 대학교를 졸업하였고 ,"];
+            let jobs = ["현재 전문직을 종사하고 ,", "현재 사무직을 종사하고 ,", "현재 서비스직을 종사하고,", "현재 노동직을 종사하고,"];
+            let marriage = ["혼인을 해본적이 없는 미혼이고 ,", "혼인을 한 기혼 상태이고 ,", "혼인을 한적이 있지만, 현재는 배우자를 사별한 상태이고 ,", "이혼 및 기타 사정이 있고 ,"];
+            let incomes = ["월수입이 100만원 미만인 당신에게 알맞는 강좌는", "월수입이 100 ~ 300만원 미만인 당신에게 알맞는 강좌는", "월수입이 300 ~ 500만원 미만인  당신에게 알맞는 강좌는", "수입이 500만원 이상인 당신에게 알맞는 강좌는"];
     
-            lectureResult.innerHTML = output; // 결과를 lectureResult 요소에 출력합니다.
+            // 각 인덱스에 해당하는 값들을 선택하여 문장을 생성합니다.
+            let result = genders[parseInt(selectedValues[0])] + " " +
+                ages[parseInt(selectedValues[1])] + " " +
+                educations[parseInt(selectedValues[2])] + " " +
+                jobs[parseInt(selectedValues[3])] + " " +
+                marriage[parseInt(selectedValues[4])] + " " +
+                incomes[parseInt(selectedValues[5])];
+            
+            lectureResult.innerHTML = result;
+            lectureResult.style.fontWeight = 'bold';
     
             // make_data() 함수를 정의
             function make_data() {
@@ -104,7 +123,7 @@
                     { label: "문화/교양", value: 0 },
                     { label: "직업기술", value: 0 },
                     { label: "사회봉사", value: 0 },
-                    { label: "건강 관련", value: 0 },
+                    { label: "건강", value: 0 },
                     { label: "성인기초", value: 0 }
                 ];
     
@@ -134,12 +153,12 @@
     
                 var svg = d3.select("#chart")
                     .append("svg")
-                    .attr("width", 800) 
+                    .attr("width", 800)
                     .attr("height", 800);
     
                 var arc = d3.arc()
                     .innerRadius(80)
-                    .outerRadius(150);
+                    .outerRadius(200);
     
                 var pie = d3.pie()
                     .value(function(d) { return d.value; })
@@ -165,20 +184,23 @@
                     })
                     .attr("dy", "0.35em")
                     .attr("text-anchor", "middle")
-                    .text(function(d) { 
+                    .text(function(d) {
                         // 퍼센트를 계산하고 표시합니다.
-                        return d.data.label;
+                        return d.data.label ;
                     })
                     .style("font-size", "14px");
     
-                var resultGender = "성별이 " + document.querySelector('input[name="gender"]:checked').value + "이고, ";
-                var resultAge = "나이가 " + document.querySelector('input[name="age"]:checked').value + "이며, ";
-                var resultEducation = "교육 수준은 " + document.querySelector('input[name="education"]:checked').value + "이고, ";
-                var resultJob = "직업은 " + document.querySelector('input[name="job"]:checked').value + "이며, ";
-                var resultMarital = "결혼 여부는 " + document.querySelector('input[name="marital"]:checked').value + "이고, ";
-                var resultIncome = "소득 수준은 " + document.querySelector('input[name="income"]:checked').value + "입니다.";
+                var textContainer = d3.select("#chart").append("div")
+                    .style("position", "relative")
+                    .style("top", "-200px")
+                    .style("width", "85%")
+                    .style("text-align", "center")
+                    .style("z-index", "1");
     
-                resultText.innerHTML = resultGender + resultAge + resultEducation + resultJob + resultMarital + resultIncome;
+                var labels = data.map(function(d) { return d.label; });  // 레이블들을 별도의 배열로 저장합니다.
+                textContainer.append("p")
+                    .style("font-size", "16.5px")
+                    .text(labels.join(", ") + " 순으로 추천합니다👍");  // 배열의 요소들을 연결하여 출력합니다.
             }
         });
     </script>
