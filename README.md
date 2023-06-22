@@ -6,8 +6,18 @@ CppVa
 
 ## 시작하는 방법
 
-App Services를 통해 웹앱을 만든다. 
+1. Azure로 웹 앱 만들기를 눌러줍니다.
+![image](https://github.com/hackersground-kr/cppva/assets/74394824/fe6f9812-ce7d-4d23-a578-0506cdcb4d8d)
 
+![image](https://github.com/hackersground-kr/cppva/assets/74394824/ff1f38b1-ea1f-4e19-ae12-d2aaa5bc2aad)
+
+2. 리소스의 그룹 이름을 만들어 주는데 이때 영숫자 문자와 하이픈만 허용하고 하이픈으로 시작하거나 끝날 수 없으며 64자 미만이어야 합니다.
+
+3. 게시에서 코드를 선택해주시고 런타임 스택은 ASP.NET V3.5로 합니다.
+
+4. 운영체제의 경우 Windows로 선택해주시고 지역은 Korea Central로 설정해 줍니다.
+
+5. 
 구독 - Hackers Ground
 리소스 그룹 rg-hg-Team-CppVa
 
