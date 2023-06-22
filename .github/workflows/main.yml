@@ -1,0 +1,2 @@
+name: Our First Workflow
+on: push
