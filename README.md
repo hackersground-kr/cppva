@@ -4,7 +4,7 @@
 
 CppVa
 ##
-#hackersground
+
 ## 제품명
 영스터디 (영원한 스터디)
 공공데이터를 활용한 노년층 평생교육 강좌 추천 웹.
@@ -28,4 +28,4 @@ CppVa
 
 ## 제품 소개 동영상
 
-제품 또는 서비스를 소개하는 동영상을 YouTube와 같은 곳에 업로드하고 동영상 링크를 적어주세요.
+제품 또는 서비스를 소개하는 동영상을 YouTube와 같은 곳에 업로드하고 동영상 링크를 적어주세요.](https://github.com/hackersground-kr/hackers-ground/issues/101)https://github.com/hackersground-kr/hackers-ground/issues/101
