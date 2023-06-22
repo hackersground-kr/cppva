@@ -43,7 +43,7 @@ CppVa
 
 13. 태그를 비우고 검토 + 만들기를 눌러 웹앱을 생성해 준다. 
 
-14. 그 후 리포지토리_이름/.github/workflows/ 생성된 yml파일을 연다.
+14. 그 후 리포지토리_이름/.github/workflows/ 생성된 main_webcppva.yml파일을 연다.
  
 15. yml파일이 생성되면 아래 코드들이 존재한다.
 
