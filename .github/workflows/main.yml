@@ -1,2 +1,13 @@
-name: Our First Workflow
-on: push
+name: My Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo "Hello, World!"
