@@ -19,7 +19,10 @@ CppVa
 
 5. 운영체제의 경우 Windows로 선택해주시고 지역은 Korea Central로 설정해 줍니다.
 
-6. 가격 책정 플랜에서 새 App Service 요금제를 만들어 줍니다.\
+6. 가격 책정 플랜에서 새로 만들기를 누른 후 자신이 원하는 이름을 입력한 후 App Service 요금제를 만들어 줍니다. 
+
+   ![image](https://github.com/hackersground-kr/cppva/assets/74394824/dd30bdc0-f64a-4995-96b2-072cdd9b3478)
+
 
 7. 다음을 눌러줍니다.
 
@@ -31,16 +34,16 @@ CppVa
     리포지토리를 설정해 준다.
 
  ![image](https://github.com/hackersground-kr/cppva/assets/74394824/d0794e0b-35f5-4779-b402-c61df084f428)
- 10. 다음을 누른후 네트워킹에서 공용 액세스 사용은 켜고 네트워크 삽입 사용은 끈다.
+10. 다음을 누른후 네트워킹에서 공용 액세스 사용은 켜고 네트워크 삽입 사용은 끈다.
 
  ![image](https://github.com/hackersground-kr/cppva/assets/74394824/df51e27e-6193-43dc-af77-1db21967f3ca)
- 11. 다음을 누르고 모니터링에서 Application Insights 사용을 아니요를 눌러준다.
+11. 다음을 누르고 모니터링에서 Application Insights 사용을 아니요를 눌러준다.
 
- 12. 태그를 비우고 검토 + 만들기를 눌러 웹앱을 생성해 준다. 
+12. 태그를 비우고 검토 + 만들기를 눌러 웹앱을 생성해 준다. 
 
- 13. 그 후 리포지토리_이름/.github/workflows/ 생성된 yml파일을 연다.
+13. 그 후 리포지토리_이름/.github/workflows/ 생성된 yml파일을 연다.
  
- 14. yml파일이 생성되면 아래 코드들이 존재한다.
+14. yml파일이 생성되면 아래 코드들이 존재한다.
 
 - name: Setup MSBuild path
         uses: microsoft/setup-msbuild@v1.0.2
