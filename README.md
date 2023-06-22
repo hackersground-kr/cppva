@@ -41,13 +41,21 @@ CppVa
  ![image](https://github.com/hackersground-kr/cppva/assets/74394824/df51e27e-6193-43dc-af77-1db21967f3ca)
 12. 다음을 누르고 모니터링에서 Application Insights 사용을 아니요를 눌러준다.
 
-13. 태그를 비우고 검토 + 만들기를 눌러 웹앱을 생성해 준다. 
+13. 태그를 비우고 검토 + 만들기를 눌러 웹앱을 생성해 준다.
 
-14. 그 후 리포지토리_이름/.github/workflows/ 생성된 yml파일을 연다.
+14. 그 후 codespace 터미널에서 git pull을 해준다.
+
+15.  pull을 통해 새로 생성한 yml파일을 git add .을 해준다.
+  
+16. 그 후 터미널에서 git commit -m "ex"을 해준다.
+
+17. 그 후 터미널에서 git push를 해준다.
+   
+18. 그 후 리포지토리_이름/.github/workflows/ 생성된 main_생성한 웹앱의 이름.yml파일을 연다.
  
-15. yml파일이 생성되면 아래 코드들이 존재한다.
+19. yml파일이 생성되면 아래 코드들이 존재한다.
 
-- name: Setup MSBuild path
+      - name: Setup MSBuild path
         uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Setup NuGet
@@ -61,6 +69,10 @@ CppVa
 
 이 부분을 삭제 해준다. (이렇게 수정해 준다. 위 코드는 정적 웹으로만 구성된 코드여서 동적인 부분을 받는 코드는 다 삭제한 코드이다.)
 
-16. 그 후 '/published/**'  이것을 -> '코드가 존재하는 파일의 이름/**' 으로 바꿔준다.
+20. 그 후 '/published/**'  이것을 -> 'front/**' 으로 바꿔준다. (front의 경우 소스코드들이 모여있는 파일)
 
-17. 위 수정한 코드들을 commit 해준 후 만들어준 웹앱의 기본 도메인으로 사이트를 접속한다.
+21. 고친 yml파일을 git add .을 해준다.
+  
+22. 그 후 터미널에서 git commit -m "ex1"을 해준다.
+
+23. 위 수정한 코드들을 git push 해준 후 만들어준 웹앱의 기본 도메인으로 사이트를 접속한다.
