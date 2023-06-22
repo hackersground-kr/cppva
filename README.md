@@ -3,29 +3,57 @@
 ## 팀명
 
 CppVa
-##
 
-## 제품명
-영스터디 (영원한 스터디)
-공공데이터를 활용한 노년층 평생교육 강좌 추천 웹.
+시작하는 방법
 
-## 참가 동기
+App Services를 통해 웹앱을 만든다. 
 
-팀원간 협업을 통해 대구, 경북 내의 문제를 해결해보고자해서
+구독 - Hackers Ground
+리소스 그룹 rg-hg-Team-CppVa
 
-## 주요 기능 및 특징, 기대 효과
+<이름>을 정한다
 
-노년층의 건강을 보조해주는 앱이나 웹서비스도 중요하지만 그들의 삶의 질을 향상시키는 것 또한 중요하다고 생각했습니다.    
-우리 팀은 대구시에서 제공하는 평생강좌 공공데이터를 정제한 후에 데이터베이스에 저장하고, 사용자의 인적사항을 바탕으로 가장 좋은 강좌를 추천함과 동시에 
-비슷한 상황의 사람들은 어떤 강좌를 듣는지 시각자료로 제공합니다. 마지막으로 사용자의 위치를 기준으로 추천된 강좌가 개설된 교육원의 위치를 지도에 표시합니다.  
+<게시>에 코드를 누른다
 
-## 제품 아키텍처 (이미지)
-![Frame_1](https://github.com/hackersground-kr/Team-CppVa/assets/74394824/6f5092dd-015e-49bb-a2ce-9ca69e8a3205)
+<런타임 스택 선택>- ASP.NET  V3.5
 
-## 제품 소개 슬라이드
+<운영 체제>Windows
 
-**(필수)** 제품 또는 서비스를 소개하는 슬라이드 덱을 리포지토리에 추가해 주세요. 슬라이드 덱은 [decks](./decks) 디렉토리에 저장한 후 이곳에 링크를 걸어주세요.
+<지역>-Korea Central
 
-## 제품 소개 동영상
+<Windows 플랜>
 
-제품 또는 서비스를 소개하는 동영상을 YouTube와 같은 곳에 업로드하고 동영상 링크를 적어주세요.](https://github.com/hackersground-kr/hackers-ground/issues/101)https://github.com/hackersground-kr/hackers-ground/issues/101
+다음 누르기
+
+GitHub Actions 사용
+
+조직 - hackersground-kr
+리포지토리를 정해준다.
+
+나머지는 다 다음을 눌러준다
+
+그리고 웹앱을 생성해 준다.
+
+그 후 GitHub에 생성된 yml파일을 
+
+- name: Setup MSBuild path
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+
+      - name: Restore NuGet packages
+        run: nuget restore
+
+      - name: Publish to folder
+        run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
+
+이 부분을 삭제 해준다.
+
+그 후 
+
+ '/published/**'  이것을 -> '코드가 존재하는 파일의 이름/**' 으로 바꿔준다.
+
+이렇게 수정해 준다. 위 코드는 정적 웹으로만 구성된 코드여서 동적인 부분을 받는 코드는 다 삭제한 코드이다.
+
+ 그 후 commit 해준 후 사이트를 실행한다.
