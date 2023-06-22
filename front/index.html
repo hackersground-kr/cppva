@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Location</a></li>
                 </ul>
             </div>
         </div>
@@ -71,7 +71,7 @@
                     <br>
                     <br>
                     <form id="myForm">
-                        <p class="lead">성별은?</p>
+                        <p class="lead">성별은?🙍‍♀️🙍‍♂️</p>
                         <div>
                             <input type="radio" id="gender1" name="gender" value="0" onclick="updateSubmitButton()">
                             <label for="gender1">남성</label><br>
@@ -79,7 +79,7 @@
                             <label for="gender2">여성</label><br>
                         </div>
                         <br>
-                        <p class="lead">나이는?</p>
+                        <p class="lead">나이는?🧑‍🦳👶</p>
                         <div>
                             <input type="radio" id="age1" name="age" value="0" onclick="updateSubmitButton()">
                             <label for="age1">40대</label><br>
@@ -89,7 +89,7 @@
                             <label for="age3">60대 이상</label><br>
                         </div>
                         <br>
-                        <p class="lead">최종학력은?</p>
+                        <p class="lead">최종학력은?📖🖋️</p>
                         <div>
                             <input type="radio" id="education1" name="education" value="0" onclick="updateSubmitButton()">
                             <label for="education1">초등학교 졸업 / X </label><br>
@@ -98,10 +98,10 @@
                             <input type="radio" id="education3" name="education" value="2" onclick="updateSubmitButton()">
                             <label for="education3">고등학교 졸업</label><br>
                             <input type="radio" id="education4" name="education" value="3" onclick="updateSubmitButton()">
-                            <label for="education4">대학교 이상</label><br>
+                            <label for="education4">대학교</label><br>
                         </div>
                         <br>
-                        <p class="lead">직업군은?</p>
+                        <p class="lead">직업군은?🔧💊</p>
                         <div>
                             <input type="radio" id="job1" name="job" value="0" onclick="updateSubmitButton()">
                             <label for="job1">전문직</label><br>
@@ -113,7 +113,7 @@
                             <label for="job4">노동직</label><br>
                         </div>
                         <br>
-                        <p class="lead">혼인상태는?</p>
+                        <p class="lead">혼인상태는?💍👩‍❤️‍👨</p>
                         <div>
                             <input type="radio" id="marital1" name="marital" value="0" onclick="updateSubmitButton()">
                             <label for="marital1">미혼</label><br>
@@ -125,7 +125,7 @@
                             <label for="marital4">이혼 및 기타</label><br>
                         </div>
                         <br>
-                        <p class="lead">수입별은?</p>
+                        <p class="lead">수입별은?💰🪙</p>
                         <div>
                             <input type="radio" id="income1" name="income" value="0" onclick="updateSubmitButton()">
                             <label for="income1">100만원 미만</label><br>
@@ -146,9 +146,9 @@
 
                     <script>
                         function updateSubmitButton() {
-                            var allSelected = ['gender', 'age', 'education', 'job', 'marital', 'income'].every(name =>
-                                [...document.getElementsByName(name)].some(input => input.checked)
-                            );
+                            var allSelected = ['gender', 'age', 'education', 'job', 'marital', 'income'].every(function(name) {
+                                return [...document.getElementsByName(name)].some(input => input.checked);
+                            });
                             document.getElementById('submitButton').disabled = !allSelected;
                         }
                 
@@ -162,9 +162,7 @@
                                 marital: document.querySelector('input[name="marital"]:checked').value,
                                 income: document.querySelector('input[name="income"]:checked').value
                             };
-                            var valueArray = Object.values(values);
-                            console.log(valueArray); // 선택된 값들이 배열 형태로 출력됩니다.
-                
+                            console.log(values); // 이곳에서 값이 배열에 저장되었음을 확인할 수 있습니다.
                             form.action = 'about.html';
                             form.submit();
                         }
