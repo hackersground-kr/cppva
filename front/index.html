@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title> Choose your Lecture! </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#!">Start your study right now!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Location</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header - set the background image for the header in the line below-->
+    <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+        <div class="text-center my-5">
+            <img class="img-fluid rounded-circle mb-4" src="https://ifh.cc/g/hrJv35.png" alt="Student Image" width="150" />
+            <h1 class="text-white fs-3 fw-bolder"> Choose your Lecture!✍️ </h1>
+            <p class="text-white-50 mb-0">지금도 늦지않았습니다, 배움은 평생 남습니다!</p>
+        </div>
+    </header>
+    <style>
+         @font-face {
+             font-family: 'SUITE-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+}
+        
+        .lead {
+            font-weight: bold;
+        }
+        * {
+            font-family: 'SUITE-Regular', sans-serif;
+        }
+
+    </style>
+
+
+    <!-- Content section-->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h2>나랑 비슷한 사람들이 선택하는 강좌는? </h2>
+                    <br>
+                    <p class="mb-0">나와 비슷한 사람은 어떤 강좌를 들을까요 ?</p>
+                    <br>
+
+                    <br>
+                    <form id="myForm" action="process.php" method="POST"> <!-- 수정: form의 action 속성을 process.php로 변경 -->
+                        <p class="lead">성별은?🙅‍♀️🙅‍♂️</p>
+                        <div>
+                            <input type="radio" id="gender1" name="gender" value="1">
+                            <label for="gender1">남성</label><br>
+                            <input type="radio" id="gender2" name="gender" value="2">
+                            <label for="gender2">여성</label><br>
+                        </div>
+                        <br>
+                        <p class="lead">나이는?👶🧑‍🦳</p>
+                        <div>
+                            <input type="radio" id="age1" name="age" value="1">
+                            <label for="age1">40대</label><br>
+                            <input type="radio" id="age2" name="age" value="2">
+                            <label for="age2">50대</label><br>
+                            <input type="radio" id="age3" name="age" value="3">
+                            <label for="age3">60대 이상</label><br>
+                        </div>
+                        <br>
+                        <p class="lead">최종학력은?📖✏️</p>
+                        <div>
+                            <input type="radio" id="education1" name="education" value="1">
+                            <label for="education1">초졸이하</label><br>
+                            <input type="radio" id="education2" name="education" value="2">
+                            <label for="education2">중졸</label><br>
+                            <input type="radio" id="education3" name="education" value="3">
+                            <label for="education3">고졸</label><br>
+                            <input type="radio" id="education4" name="education" value="4">
+                            <label for="education4">대졸 이상</label><br>
+                        </div>
+                        <br>
+                        <p class="lead">직업군은?💻🎞️ </p>
+                        <div>
+                            <input type="radio" id="job1" name="job" value="1">
+                            <label for="job1">전문직</label><br>
+                            <input type="radio" id="job2" name="job" value="2">
+                            <label for="job2">사무직</label><br>
+                            <input type="radio" id="job3" name="job" value="3">
+                            <label for="job3">서비스직</label><br>
+                            <input type="radio" id="job4" name="job" value="4">
+                            <label for="job4">노동직</label><br>
+                        </div>
+                        <br>
+                        <p class="lead">혼인상태는?💏👩‍👩‍👦 </p>
+                        <div>
+                            <input type="radio" id="marital1" name="marital" value="1">
+                            <label for="marital1">미혼</label><br>
+                            <input type="radio" id="marital2" name="marital" value="2">
+                            <label for="marital2">기혼</label><br>
+                            <input type="radio" id="marital3" name="marital" value="3">
+                            <label for="marital3">사별</label><br>
+                            <input type="radio" id="marital4" name="marital" value="4">
+                            <label for="marital4">이혼 및 기타</label><br>
+                        </div>
+                        <br>
+                        <p class="lead">수입별은?🪙💰</p>
+                        <div>
+                            <input type="radio" id="income1" name="income" value="1">
+                            <label for="income1">100만원 미만</label><br>
+                            <input type="radio" id="income2" name="income" value="2">
+                            <label for="income2">100 ~ 300만원미만</label><br>
+                            <input type="radio" id="income3" name="income" value="3">
+                            <label for="income3">300 ~ 500만원미만</label><br>
+                            <input type="radio" id="income4" name="income" value="4">
+                            <label for="income4">500만원 이상</label><br>
+                        </div>
+                        <br>
+                        <div class="wrap">
+                            <button type="submit" class="button" id="submitButton" disabled>submit !</button>
+                        </div>
+                    </form>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var form = document.getElementById('myForm');
+                            var submitButton = document.getElementById('submitButton');
+
+                            var updateSubmitButton = function() {
+                                var allSelected = ['gender', 'age', 'education', 'job', 'marital', 'income'].every(function(name) {
+                                    return [...form[name]].some(input => input.checked);
+                                });
+                                submitButton.disabled = !allSelected;
+                            }
+
+                            form.addEventListener('change', updateSubmitButton);
+                            updateSubmitButton();
+                        });
+                    </script>
+
+                    <style>
+                        .wrap {
+                            display: flex;
+                            justify-content: flex-start; /* This will align the button to the left */
+                        }
+
+                        /* This will center the button */
+                        .button {
+                            display: inline-block;
+                            font-size: 16px;
+                            margin: 20px 2px;
+                            padding: 10px 20px;
+                            text-align: center;
+                            text-decoration: none;
+                            color: white;
+                            background-color: #4CAF50;
+                            border-radius: 5px;
+                            transition: all 0.3s ease-in-out;
+                            border: none; /* Removes the default button border */
+                            cursor: pointer; /* Changes the cursor when you hover over the button */
+                        }
+
+                        .button:hover {
+                            background-color: #45a049;
+                        }
+
+                        .button:disabled {
+                            background-color: #ccc;
+                            cursor: not-allowed;
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image element - set the background image for the header in the line below-->
+    <div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+        <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+        <div style="height: 20rem"></div>
+    </div>
+    <!-- Content section-->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h2>평생 교육이란 ?</h2>
+                    <p class="lead">나이, 성별, 직업, 소득, 결혼여부 어느 조건에 상관없이 교육을 받을 수 있는 것</p>
+                    <p class="mb-0">학교의 정규교육과정을 제외한 학력보완교육, 성인 기초․문자해독교육, 직업능력향상교육, 인문교양교육, 문화예술교육, 시민참여교육 등을 포함하는 모든 형태의 조직적인 활동을 말하며 학습자의 자발적인 참여를 일컫는 말</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">&copy; CppVa 2023 hackerground</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
