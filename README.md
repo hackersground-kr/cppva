@@ -3,29 +3,64 @@
 ## 팀명
 
 CppVa
-##
-#hackersground
-## 제품명
-영스터디 (영원한 스터디)
-공공데이터를 활용한 노년층 평생교육 강좌 추천 웹.
 
-## 참가 동기
+## 시작하는 방법
 
-팀원간 협업을 통해 대구, 경북 내의 문제를 해결해보고자해서
+1. 저희 GitHub에서 fork 한 후 codespace를 생성한다.
+   
+2. Azure로 웹 앱 만들기를 눌러줍니다.
+![image](https://github.com/hackersground-kr/cppva/assets/74394824/fe6f9812-ce7d-4d23-a578-0506cdcb4d8d)
 
-## 주요 기능 및 특징, 기대 효과
+![image](https://github.com/hackersground-kr/cppva/assets/74394824/ff1f38b1-ea1f-4e19-ae12-d2aaa5bc2aad)
 
-노년층의 건강을 보조해주는 앱이나 웹서비스도 중요하지만 그들의 삶의 질을 향상시키는 것 또한 중요하다고 생각했습니다.    
-우리 팀은 대구시에서 제공하는 평생강좌 공공데이터를 정제한 후에 데이터베이스에 저장하고, 사용자의 인적사항을 바탕으로 가장 좋은 강좌를 추천함과 동시에 
-비슷한 상황의 사람들은 어떤 강좌를 듣는지 시각자료로 제공합니다. 마지막으로 사용자의 위치를 기준으로 추천된 강좌가 개설된 교육원의 위치를 지도에 표시합니다.  
+3. 리소스의 그룹 이름을 만들어 주는데 이때 영숫자 문자와 하이픈만 허용하고 하이픈으로 시작하거나 끝날 수 없으며 64자 미만이어야 합니다.
 
-## 제품 아키텍처 (이미지)
-![Frame_1](https://github.com/hackersground-kr/Team-CppVa/assets/74394824/6f5092dd-015e-49bb-a2ce-9ca69e8a3205)
+4. 게시에서 코드를 선택해주시고 런타임 스택은 ASP.NET V3.5로 합니다.
 
-## 제품 소개 슬라이드
+5. 운영체제의 경우 Windows로 선택해주시고 지역은 Korea Central로 설정해 줍니다.
 
-**(필수)** 제품 또는 서비스를 소개하는 슬라이드 덱을 리포지토리에 추가해 주세요. 슬라이드 덱은 [decks](./decks) 디렉토리에 저장한 후 이곳에 링크를 걸어주세요.
+6. 가격 책정 플랜에서 새로 만들기를 누른 후 자신이 원하는 이름을 입력한 후 App Service 요금제를 만들어 줍니다. 
 
-## 제품 소개 동영상
+   ![image](https://github.com/hackersground-kr/cppva/assets/74394824/dd30bdc0-f64a-4995-96b2-072cdd9b3478)
+   ![image](https://github.com/hackersground-kr/cppva/assets/74394824/3839a90c-3017-41c4-ad1f-dfd0aeb64ea5)
 
-제품 또는 서비스를 소개하는 동영상을 YouTube와 같은 곳에 업로드하고 동영상 링크를 적어주세요.
+7. 확인을 눌러 주신 후 표준 S1을 선택해줍니다.
+
+8. 다음을 눌러줍니다.
+
+![image](https://github.com/hackersground-kr/cppva/assets/74394824/a5b485c4-876d-48ec-8def-648551132f9e)
+
+9. GitHub Actions 설정에서 지속적인 배포를 사용으로 눌러줍니다.
+
+10. GitHub Actions 세부 정보에서 GitHub계정을 입력해주시고 자신의 조직과 codespace를 생성한
+    리포지토리를 설정해 준다.
+
+ ![image](https://github.com/hackersground-kr/cppva/assets/74394824/d0794e0b-35f5-4779-b402-c61df084f428)
+11. 다음을 누른후 네트워킹에서 공용 액세스 사용은 켜고 네트워크 삽입 사용은 끈다.
+
+ ![image](https://github.com/hackersground-kr/cppva/assets/74394824/df51e27e-6193-43dc-af77-1db21967f3ca)
+12. 다음을 누르고 모니터링에서 Application Insights 사용을 아니요를 눌러준다.
+
+13. 태그를 비우고 검토 + 만들기를 눌러 웹앱을 생성해 준다. 
+
+14. 그 후 리포지토리_이름/.github/workflows/ 생성된 yml파일을 연다.
+ 
+15. yml파일이 생성되면 아래 코드들이 존재한다.
+
+- name: Setup MSBuild path
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+
+      - name: Restore NuGet packages
+        run: nuget restore
+
+      - name: Publish to folder
+        run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
+
+이 부분을 삭제 해준다. (이렇게 수정해 준다. 위 코드는 정적 웹으로만 구성된 코드여서 동적인 부분을 받는 코드는 다 삭제한 코드이다.)
+
+16. 그 후 '/published/**'  이것을 -> '코드가 존재하는 파일의 이름/**' 으로 바꿔준다.
+
+17. 위 수정한 코드들을 commit 해준 후 만들어준 웹앱의 기본 도메인으로 사이트를 접속한다.
