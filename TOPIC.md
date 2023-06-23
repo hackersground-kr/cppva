@@ -23,6 +23,8 @@ CppVa
 ## 제품 소개 슬라이드
 
 [decks/hackersground.pptx](https://github.com/hackersground-kr/cppva/blob/c8c443538b1b41b2f038d9561f33aa86dcb52f23/decks/hackersground.pptx)
+
+
 https://github.com/hackersground-kr/cppva/blob/0277aed1e606e98903128e81a8fdfc4888243597/decks/hackersground_cppva1.pdf
 
 
